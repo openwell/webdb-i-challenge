@@ -8,7 +8,7 @@ server.use(express.json());
 
 
 server.use(logger, helmet());
-server.use("/api/account", accountRoute);
+server.use("/api/accounts", accountRoute);
 
 server.get("/", (req, res) => {
   res.send(`<h2>Let's write some middleware!</h2>`);

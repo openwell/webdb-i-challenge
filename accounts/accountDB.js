@@ -11,9 +11,15 @@ function get() {
   return db("accounts");
 }
 
-function insert(user) {
+function getById(id) {
+  return db('accounts')
+    .where({ id })
+    .first();
+}
+
+function insert(account) {
   return db("accounts")
-    .insert(user)
+    .insert(account)
     .then(ids => {
       return getById(ids[0]);
     });
