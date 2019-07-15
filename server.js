@@ -1,13 +1,14 @@
 const express = require("express");
 const helmet = require('helmet')
 
-const db = require('./data/dbConfig.js');
+const accountRoute = require("./accounts/accountRouter");
 
 const server = express();
 server.use(express.json());
 
 
 server.use(logger, helmet());
+server.use("/api/account", accountRoute);
 
 server.get("/", (req, res) => {
   res.send(`<h2>Let's write some middleware!</h2>`);
